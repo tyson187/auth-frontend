@@ -1,0 +1,36 @@
+<div class="dashboard">
+    <header class="dashboard-header">
+        <h1>Dashboard</h1>
+
+        @if (currentUser(); as user) {
+        <div class="user-info">
+            <span>Welcome, {{ user.name }}!</span>
+            <button (click)="logout()" class="btn btn-secondary">
+                Logout
+            </button>
+        </div>
+        }
+    </header>
+
+
+    <main class="dashboard-content">
+        <div class="welcome-card">
+            <h2>Welcome to Your Dashboard</h2>
+            @if (currentUser(); as user) {
+            <p>You are logged in as <strong>{{ user.email }}</strong></p>
+            <p>Account created: {{ user.createdAt | date:'medium' }}</p>
+            }
+        </div>
+
+
+        <div class="info-card">
+            <h3>Your Authentication Status</h3>
+            <ul>
+                <li>✓ JWT Token stored securely</li>
+                <li>✓ Email verified</li>
+                <li>✓ Protected routes working</li>
+                <li>✓ Automatic token attachment</li>
+            </ul>
+        </div>
+    </main>
+</div>
